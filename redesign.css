@@ -1,0 +1,259 @@
+/* ============================================================
+   LAMPA GLASS v4 — ТОЛЬКО ЦВЕТОВАЯ СХЕМА (решение Denis 2026-10-27)
+   Вёрстка Lampa НЕ меняется: боковое меню, ряды, карточки, настройки —
+   всё на штатных местах и штатных размеров. Меняется только цвет:
+   светлый голубовато-серый фон, тёмный текст, оранжевый акцент,
+   полупрозрачное стекло на панелях. Никаких перестроек DOM.
+   ============================================================ */
+
+/* ---------- База ---------- */
+body.redesign {
+    background: #c9d3e0 !important;
+    background: linear-gradient(180deg, #c9d3e0 0%, #dde4ec 45%, #eef1f5 100%) !important;
+    color: #14161a;
+}
+body.redesign .background,
+body.redesign .background__one,
+body.redesign .background__two,
+body.redesign .background__fade {
+    opacity: 0 !important;
+}
+body.redesign .activity__body,
+body.redesign .activity {
+    background: transparent !important;
+}
+
+/* ---------- Шапка: тёмный текст и иконки ---------- */
+body.redesign .head__time,
+body.redesign .head__time-now,
+body.redesign .head__time-date,
+body.redesign .head__time-week {
+    color: #14161a;
+}
+body.redesign .head__action [stroke] {
+    stroke: #14161a;
+}
+body.redesign .head__action path[fill],
+body.redesign .head__action rect[fill],
+body.redesign .head__action circle[fill] {
+    fill: #14161a;
+}
+
+/* ---------- Боковое меню: тёмный текст, тёмные иконки, чёрный фокус ---------- */
+body.redesign .menu__item {
+    color: #14161a;
+}
+body.redesign .menu__item .menu__ico [stroke] {
+    stroke: #14161a;
+}
+body.redesign .menu__item .menu__ico path[fill],
+body.redesign .menu__item .menu__ico rect[fill],
+body.redesign .menu__item .menu__ico circle[fill] {
+    fill: #14161a;
+}
+body.redesign .menu__item.focus,
+body.redesign .menu__item.traverse,
+body.redesign .menu__item.hover {
+    background-color: #101114;
+    color: #fff;
+}
+body.redesign .menu__item.focus .menu__ico [stroke] {
+    stroke: #fff;
+}
+body.redesign .menu__item.focus .menu__ico path[fill],
+body.redesign .menu__item.focus .menu__ico rect[fill],
+body.redesign .menu__item.focus .menu__ico circle[fill] {
+    fill: #fff;
+}
+body.redesign .menu__split {
+    border-color: rgba(20, 22, 26, 0.12);
+}
+
+/* ---------- Нижняя панель навигации (мобильная) ---------- */
+body.redesign .navigation-bar {
+    background: rgba(255, 255, 255, 0.7) !important;
+}
+body.redesign .navigation-bar__label {
+    color: #14161a;
+}
+body.redesign .navigation-bar__icon [stroke] {
+    stroke: #14161a;
+}
+body.redesign .navigation-bar__icon path[fill],
+body.redesign .navigation-bar__icon rect[fill],
+body.redesign .navigation-bar__icon circle[fill] {
+    fill: #14161a;
+}
+
+/* ---------- Ряды и карточки ---------- */
+body.redesign .items-line__title {
+    color: #14161a;
+}
+body.redesign .items-line__more {
+    background: rgba(255, 255, 255, 0.7);
+    color: #14161a;
+}
+body.redesign .items-line__more.focus {
+    background: #101114;
+    color: #fff;
+}
+body.redesign .card__title {
+    color: #14161a;
+}
+body.redesign .card__vote {
+    color: #ff6a1a;
+}
+body.redesign .card__view {
+    -webkit-box-shadow: 0 0.4em 1.2em rgba(20, 30, 50, 0.15);
+    -moz-box-shadow: 0 0.4em 1.2em rgba(20, 30, 50, 0.15);
+    box-shadow: 0 0.4em 1.2em rgba(20, 30, 50, 0.15);
+}
+body.redesign .card.focus .card__view {
+    -webkit-box-shadow: 0 0 0 0.2em #101114, 0 0.8em 2em rgba(20, 30, 50, 0.3);
+    -moz-box-shadow: 0 0 0 0.2em #101114, 0 0.8em 2em rgba(20, 30, 50, 0.3);
+    box-shadow: 0 0 0 0.2em #101114, 0 0.8em 2em rgba(20, 30, 50, 0.3);
+}
+
+/* ---------- Карточка фильма ---------- */
+body.redesign .full-start-new__title {
+    color: #14161a;
+}
+body.redesign .full-start__rate {
+    color: #ff6a1a;
+}
+body.redesign .full-start__button.button--play {
+    background: #101114;
+    color: #fff;
+}
+/* Фон карточки — приглушённый, чтобы тёмный текст читался поверх любого кадра */
+body.redesign .full-start__background.loaded {
+    opacity: 0.15 !important;
+}
+body.redesign .full-start__background.dim {
+    opacity: 0.1 !important;
+}
+@media screen and (max-width: 400px) {
+    /* На телефоне постер становится фоном на весь экран — приглушаем его */
+    body.redesign .full-start__poster {
+        opacity: 0.3 !important;
+    }
+}
+/* Весь текст карточки — тёмный (перебивает наследование и светлые цвета стока) */
+body.redesign .full-start-new__head {
+    color: #5a6472;
+}
+body.redesign .full-start-new__head span {
+    color: #14161a;
+}
+body.redesign .full-start-new__tagline,
+body.redesign .full-start-new__details,
+body.redesign .full-start-new__description,
+body.redesign .full-descr__info-name,
+body.redesign .full-descr__info-body,
+body.redesign .full-descr__text,
+body.redesign .full-descr__line-name,
+body.redesign .full-descr__line-body,
+body.redesign .full-person__name,
+body.redesign .full-person__role,
+body.redesign .full-episode__name,
+body.redesign .full-episode__body,
+body.redesign .full-episode__date {
+    color: #14161a;
+}
+body.redesign .full-start-new__creator,
+body.redesign .full-episode__num {
+    color: #5a6472;
+}
+body.redesign .full-start__pg,
+body.redesign .full-start__status {
+    color: #14161a;
+    border-color: rgba(20, 22, 26, 0.4);
+}
+
+/* ---------- Настройки: полупрозрачное стекло ---------- */
+body.redesign .settings__content {
+    background: rgba(255, 255, 255, 0.85) !important;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+body.redesign .settings__title {
+    color: #14161a;
+}
+body.redesign .settings-folder__name,
+body.redesign .settings-param__name {
+    color: #14161a;
+}
+body.redesign .settings-param__value,
+body.redesign .settings-param__descr {
+    color: #5a6472;
+}
+body.redesign .settings-folder.focus,
+body.redesign .settings-param.focus {
+    background-color: #101114;
+}
+body.redesign .settings-folder.focus .settings-folder__name,
+body.redesign .settings-param.focus .settings-param__name,
+body.redesign .settings-param.focus .settings-param__value {
+    color: #fff;
+}
+body.redesign .settings-folder__icon [stroke] {
+    stroke: #14161a;
+}
+body.redesign .settings-folder__icon path[fill],
+body.redesign .settings-folder__icon rect[fill],
+body.redesign .settings-folder__icon circle[fill] {
+    fill: #14161a;
+}
+body.redesign .settings-folder.focus .settings-folder__icon [stroke] {
+    stroke: #fff;
+}
+body.redesign .settings-folder.focus .settings-folder__icon path[fill],
+body.redesign .settings-folder.focus .settings-folder__icon rect[fill],
+body.redesign .settings-folder.focus .settings-folder__icon circle[fill] {
+    fill: #fff;
+}
+
+/* ---------- Модальные окна и уведомления: светлая шторка ---------- */
+body.redesign .modal__content {
+    background: rgba(255, 255, 255, 0.88) !important;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+body.redesign .modal__title {
+    color: #14161a;
+}
+body.redesign .notice {
+    background: rgba(255, 255, 255, 0.6);
+}
+body.redesign .notice__title {
+    color: #14161a;
+}
+body.redesign .notice__descr {
+    color: #5a6472;
+}
+body.redesign .notice__descr span,
+body.redesign .notice__descr b {
+    color: #8a6d1a;
+}
+body.redesign .notice__time {
+    color: #5a6472;
+}
+body.redesign .notice__author-body {
+    color: #14161a;
+}
+
+/* ---------- Выпадающие списки: светлые ---------- */
+body.redesign .selectbox__content {
+    background: rgba(255, 255, 255, 0.92) !important;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+}
+body.redesign .selectbox-item__title {
+    color: #14161a;
+}
+body.redesign .selectbox-item.focus {
+    background-color: #101114;
+}
+body.redesign .selectbox-item.focus .selectbox-item__title {
+    color: #fff;
+}
